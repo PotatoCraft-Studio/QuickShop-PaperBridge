@@ -2,7 +2,9 @@ package org.maxgamer.quickshop.paperbridge;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.HoverEvent;
+import org.bukkit.Nameable;
 import org.bukkit.block.Chest;
+import org.bukkit.block.Container;
 import org.jetbrains.annotations.Nullable;
 import org.maxgamer.quickshop.shop.ShopInfoStorage;
 import org.maxgamer.quickshop.util.JsonUtil;
@@ -16,11 +18,11 @@ public class PaperBridge {
         return Util.isClassAvailable("io.papermc.paper.adventure.AdventureComponent");
     }
 
-    public void setChestTitle(Chest chest,String show, ShopInfoStorage storage){
+    public void setChestTitle(Nameable chest, String show, ShopInfoStorage storage){
         chest.customName(Component.text(show).hoverEvent(HoverEvent.showText(Component.text(JsonUtil.getGson().toJson(storage)))).asComponent());
     }
     @Nullable
-    public ShopInfoStorage readChestTitle(Chest chest){
+    public ShopInfoStorage readChestTitle(Nameable chest){
         Component component =  chest.customName();
         if(component == null){
             return null;
