@@ -1,6 +1,7 @@
 package org.maxgamer.quickshop.paperbridge;
 
-import com.sun.istack.internal.NotNull;
+
+import org.jetbrains.annotations.NotNull;
 
 public class Util {
     /**
